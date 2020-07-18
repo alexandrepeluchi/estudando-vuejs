@@ -6,23 +6,36 @@
     <title>Document</title>
 </head>
 <body>
-    
+
     <div id="app">
-        {{msg}}
+        <p>String: {{ msg }}</p>
+        <p>Boolean: {{ isTrue ? 'Verdade' : 'Falso' }}</p>
+        <p>Array: {{ fruits[0] + ' e ' + fruits[1] }}</p>
+        <p>Object: {{ student.name + ' ' + student.lastName + ', ' + student.age + ' anos.'}}</p>
+        <p>Number: {{ num + 1 }}</p>
+        <p>Função: {{ fun() }}</p>
+        <p>Arrow Function: {{ arrowFun() }}</p>
     </div>
 
     <!-- development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
     <script>
         new Vue({
-
             el: '#app',
             data: {
-                msg: 'Teste de mensagem'
+                msg: 'Teste de mensagem',
+                isTrue: false,
+                fruits: ['Laranja', 'Maça', 'Abacaxi'],
+                student: { name: 'Alexandre', lastName: 'Peluchi', age: '25' },
+                num: 1,
+                fun: function() {
+                    return 'Mensagem da Funcao'
+                },
+                arrowFun: () => {
+                    return 'Mensagem da Arrow Function'
+                }
             }         
         })
     </script> 
-    
 </body>
 </html>
