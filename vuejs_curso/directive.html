@@ -8,7 +8,9 @@
 <body>
 
     <div id="app">
-        
+        <img 
+        v-bind:src="srcImg" 
+        v-bind:title="titleImg">
     </div>
 
     <!-- development version, includes helpful console warnings -->
@@ -17,7 +19,8 @@
         new Vue({
             el: '#app',
             data: {
-
+                srcImg: 'vuelogo.png',
+                titleImg: 'Logo do Vue'
             }         
         })
     </script> 
