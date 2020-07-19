@@ -8,7 +8,18 @@
 <body>
 
     <div id="app">
-        <img v-bind:src="srcImg" v-bind:title="titleImg">
+        <input type="text" v-model="inputTxt">
+        {{inputTxt}}
+        <br>
+        <div v-if="inputTxt == 1">
+            <img v-bind:src="srcImg" v-bind:title="titleImg" width="100px">
+        </div>
+        <div v-else-if="inputTxt == 2">
+            <img v-bind:src="srcImg2" v-bind:title="titleImg" width="200px">
+        </div> 
+        <div v-else-if="inputTxt == 3">
+            <img v-bind:src="srcImg3" v-bind:title="titleImg" width="200px">
+        </div>         
         <hr>
         <a :href="url"> Vue </a>
         <hr>
@@ -23,7 +34,10 @@
         new Vue({
             el: '#app',
             data: {
+                inputTxt: '',
                 srcImg: 'vuelogo.png',
+                srcImg2: 'vuelogo2.png',
+                srcImg3: 'vuelogo3.png',
                 titleImg: 'Logo do Vue',
                 url: 'https://br.vuejs.org/',
                 txt: '<b>Teste</b> <br> de <br> texto!'
