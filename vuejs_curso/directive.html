@@ -8,9 +8,13 @@
 <body>
 
     <div id="app">
-        <img 
-        v-bind:src="srcImg" 
-        v-bind:title="titleImg">
+        <img v-bind:src="srcImg" v-bind:title="titleImg">
+        <hr>
+        <a :href="url"> Vue </a>
+        <hr>
+        <p v-text="txt"></p>
+        <hr>
+        <p v-html="txt"></p>
     </div>
 
     <!-- development version, includes helpful console warnings -->
@@ -20,7 +24,9 @@
             el: '#app',
             data: {
                 srcImg: 'vuelogo.png',
-                titleImg: 'Logo do Vue'
+                titleImg: 'Logo do Vue',
+                url: 'https://br.vuejs.org/',
+                txt: '<b>Teste</b> <br> de <br> texto!'
             }         
         })
     </script> 
