@@ -8,6 +8,10 @@
 <body>
 
     <div id="app">
+        <h1>Testando Diretivas</h1>
+        <hr>
+        <h2>Texto e imagens com condição If...Else</h2>
+        <p>Digite um número de 1 a 3:</p>
         <input type="text" v-model="inputTxt">
         {{inputTxt}}
         <br>
@@ -21,11 +25,14 @@
             <img v-bind:src="srcImg3" v-bind:title="titleImg" width="200px">
         </div>         
         <hr>
+        <h2>Tag Âncora e o Atributo Href</h2>
         <a :href="url"> Vue </a>
         <hr>
-        <p v-text="txt"></p>
-        <hr>
-        <p v-html="txt"></p>
+        <h2>Tag Parágrafo</h2>
+        <h3>v-text</h3>
+            <p v-text="txt"></p>
+        <h3>v-html</h3>
+            <p v-html="txt"></p>
     </div>
 
     <!-- development version, includes helpful console warnings -->
