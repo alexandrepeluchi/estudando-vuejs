@@ -1,55 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app">
+			<h1>Testando Diretivas</h1>
+			<hr />
+			<h2>Texto e imagens com condição If...Else</h2>
+			<p>Digite um número de 1 a 3:</p>
+			<input type="text" v-model="inputTxt" />
+			{{inputTxt}}
+			<br />
+			<div v-if="inputTxt == 1">
+				<img v-bind:src="srcImg" v-bind:title="titleImg" width="100px" />
+			</div>
+			<div v-else-if="inputTxt == 2">
+				<img v-bind:src="srcImg2" v-bind:title="titleImg" width="200px" />
+			</div>
+			<div v-else-if="inputTxt == 3">
+				<img v-bind:src="srcImg3" v-bind:title="titleImg" width="200px" />
+			</div>
+			<hr />
+			<h2>Tag Âncora e o Atributo Href</h2>
+			<a :href="url"> Vue </a>
+			<hr />
+			<h2>Tag Parágrafo</h2>
+			<h3>v-text</h3>
+			<p v-text="txt"></p>
+			<h3>v-html</h3>
+			<p v-html="txt"></p>
+		</div>
 
-    <div id="app">
-        <h1>Testando Diretivas</h1>
-        <hr>
-        <h2>Texto e imagens com condição If...Else</h2>
-        <p>Digite um número de 1 a 3:</p>
-        <input type="text" v-model="inputTxt">
-        {{inputTxt}}
-        <br>
-        <div v-if="inputTxt == 1">
-            <img v-bind:src="srcImg" v-bind:title="titleImg" width="100px">
-        </div>
-        <div v-else-if="inputTxt == 2">
-            <img v-bind:src="srcImg2" v-bind:title="titleImg" width="200px">
-        </div> 
-        <div v-else-if="inputTxt == 3">
-            <img v-bind:src="srcImg3" v-bind:title="titleImg" width="200px">
-        </div>         
-        <hr>
-        <h2>Tag Âncora e o Atributo Href</h2>
-        <a :href="url"> Vue </a>
-        <hr>
-        <h2>Tag Parágrafo</h2>
-        <h3>v-text</h3>
-            <p v-text="txt"></p>
-        <h3>v-html</h3>
-            <p v-html="txt"></p>
-    </div>
-
-    <!-- development version, includes helpful console warnings -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script>
-        new Vue({
-            el: '#app',
-            data: {
-                inputTxt: '',
-                srcImg: 'vuelogo.png',
-                srcImg2: 'vuelogo2.png',
-                srcImg3: 'vuelogo3.png',
-                titleImg: 'Logo do Vue',
-                url: 'https://br.vuejs.org/',
-                txt: '<b>Teste</b> <br> de <br> texto!'
-            }         
-        })
-    </script> 
-</body>
+		<!-- development version, includes helpful console warnings -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					inputTxt: '',
+					srcImg: 'vuelogo.png',
+					srcImg2: 'vuelogo2.png',
+					srcImg3: 'vuelogo3.png',
+					titleImg: 'Logo do Vue',
+					url: 'https://br.vuejs.org/',
+					txt: '<b>Teste</b> <br> de <br> texto!',
+				},
+			})
+		</script>
+	</body>
 </html>
