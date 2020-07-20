@@ -38,7 +38,62 @@
 					{{item}}
 				</li>
 			</ul>
+			<hr />
+			<h3>CSS</h3>
+			<b>blue</b>
+			<input
+				@click="colorText($event.target.id)"
+				type="radio"
+				name="color"
+				id="blue"
+			/>
+			<b>green</b>
+			<input
+				@click="colorText($event.target.id)"
+				type="radio"
+				name="color"
+				id="green"
+			/>
+			<b>red</b>
+			<input
+				@click="colorText($event.target.id)"
+				type="radio"
+				name="color"
+				id="red"
+			/>
+			<b>yellow</b>
+			<input
+				@click="colorText($event.target.id)"
+				type="radio"
+				name="color"
+				id="yellow"
+			/>
+
+			<p :class="classText">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+				veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+				commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+				velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+				occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+				mollit anim id est laborum.
+			</p>
 		</div>
+
+		<style>
+			.blue {
+				background-color: blue;
+			}
+			.green {
+				background-color: green;
+			}
+			.red {
+				background-color: red;
+			}
+			.yellow {
+				background-color: yellow;
+			}
+		</style>
 
 		<!-- development version, includes helpful console warnings -->
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -46,6 +101,7 @@
 			new Vue({
 				el: '#app',
 				data: {
+					classText: 'blue',
 					inputTxt: '',
 					array: [],
 				},
@@ -59,6 +115,9 @@
 						if (element.style.background == 'white')
 							event.target.style = 'background: yellow'
 						else event.target.style = 'background: white'
+					},
+					colorText(color) {
+						this.classText = color
 					},
 				},
 			})
