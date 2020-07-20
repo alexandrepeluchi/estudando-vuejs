@@ -30,7 +30,13 @@
 			<hr />
 			<h3>Array</h3>
 			<ul>
-				<li v-for="item in array">{{item}}</li>
+				<li
+					v-for="item in array"
+					@click="alert($event)"
+					style="background: white;"
+				>
+					{{item}}
+				</li>
 			</ul>
 		</div>
 
@@ -47,6 +53,12 @@
 					changeName(name, event) {
 						this.array.push(this.inputTxt)
 						this.inputTxt = ''
+					},
+					alert(event) {
+						var element = event.target
+						if (element.style.background == 'white')
+							event.target.style = 'background: yellow'
+						else event.target.style = 'background: white'
 					},
 				},
 			})
