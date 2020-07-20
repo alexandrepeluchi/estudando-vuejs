@@ -10,14 +10,28 @@
 		<div id="app">
 			<h1>Two way data binding</h1>
 			<hr />
-			<p>Texto:</p>
-			<input type="text" v-model="inputTxt" />
-			<br />
-			<button v-on:click="changeName()">
-				Chamar alteração de nome
-			</button>
-			<br />
-			<label v-text="inputTxt"></label>
+			<form v-on:submit.prevent="changeName('Name')">
+				<p>Texto:</p>
+				<label v-text="inputTxt"></label>
+				<br />
+				<input type="text" v-model="inputTxt" />
+				<button type="submit">
+					Change Name
+				</button>
+				<br />
+			</form>
+			<hr />
+			<p>Input works with 'Enter' pressed.</p>
+			<input
+				type="text"
+				v-model="inputTxt"
+				v-on:keyup.enter="changeName('Name')"
+			/>
+			<hr />
+			<h3>Array</h3>
+			<ul>
+				<li v-for="item in array">{{item}}</li>
+			</ul>
 		</div>
 
 		<!-- development version, includes helpful console warnings -->
@@ -27,10 +41,12 @@
 				el: '#app',
 				data: {
 					inputTxt: '',
+					array: [],
 				},
 				methods: {
-					changeName() {
-						this.inputTxt = 'Hello World!'
+					changeName(name, event) {
+						this.array.push(this.inputTxt)
+						this.inputTxt = ''
 					},
 				},
 			})
