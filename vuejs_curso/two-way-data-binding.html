@@ -1,126 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
 
-	<body>
-		<div id="app">
-			<h1>Two way data binding</h1>
-			<hr />
-			<form v-on:submit.prevent="changeName('Name')">
-				<p>Texto:</p>
-				<label v-text="inputTxt"></label>
-				<br />
-				<input type="text" v-model="inputTxt" />
-				<button type="submit">
-					Change Name
-				</button>
-				<br />
-			</form>
-			<hr />
-			<p>Input works with 'Enter' pressed.</p>
-			<input
-				type="text"
-				v-model="inputTxt"
-				v-on:keyup.enter="changeName('Name')"
-			/>
-			<hr />
-			<h3>Array</h3>
-			<ul>
-				<li
-					v-for="item in array"
-					@click="alert($event)"
-					style="background: white;"
-				>
-					{{item}}
-				</li>
-			</ul>
-			<hr />
-			<h3>CSS</h3>
-			<b>blue</b>
-			<input
-				@click="colorText($event.target.id)"
-				type="radio"
-				name="color"
-				id="blue"
-			/>
-			<b>green</b>
-			<input
-				@click="colorText($event.target.id)"
-				type="radio"
-				name="color"
-				id="green"
-			/>
-			<b>red</b>
-			<input
-				@click="colorText($event.target.id)"
-				type="radio"
-				name="color"
-				id="red"
-			/>
-			<b>yellow</b>
-			<input
-				@click="colorText($event.target.id)"
-				type="radio"
-				name="color"
-				id="yellow"
-			/>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+</head>
 
-			<p :class="classText">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-				veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-				commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-				velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-				occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-				mollit anim id est laborum.
-			</p>
-		</div>
+<body>
+	<div id="app">
+		<h1>Two way data binding</h1>
+		<hr />
+		<form v-on:submit.prevent="changeName('Name')">
+			<p>Text:</p>
+			<label v-text="inputTxt"></label>
+			<br />
+			<input type="text" v-model="inputTxt" />
+			<button type="submit">
+				Change Name
+			</button>
+			<br />
+		</form>
+		<hr />
+		<p>Input works with 'Enter' pressed.</p>
+		<input type="text" v-model="inputTxt" v-on:keyup.enter="changeName('Name')" />
+		<hr />
+		<h3>Array</h3>
+		<ul>
+			<li v-for="item in array" @click="alert($event)" style="background: white;">
+				{{item}}
+			</li>
+		</ul>
+		<hr />
+		<h3>CSS</h3>
+		<b>blue</b>
+		<input @click="colorText($event.target.id)" type="radio" name="color" id="blue" />
+		<b>green</b>
+		<input @click="colorText($event.target.id)" type="radio" name="color" id="green" />
+		<b>red</b>
+		<input @click="colorText($event.target.id)" type="radio" name="color" id="red" />
+		<b>yellow</b>
+		<input @click="colorText($event.target.id)" type="radio" name="color" id="yellow" />
 
-		<style>
-			.blue {
-				background-color: blue;
-			}
-			.green {
-				background-color: green;
-			}
-			.red {
-				background-color: red;
-			}
-			.yellow {
-				background-color: yellow;
-			}
-		</style>
+		<p :class="classText">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+			veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+			commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+			velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+			occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+			mollit anim id est laborum.
+		</p>
+		<hr>
+		<button @click='blue()'>Blue</button>
+		<button @click='green()'>Green</button>
+		<button @click='red()'>Red</button>
+		<button @click='yellow()'>Yellow</button>
 
-		<!-- development version, includes helpful console warnings -->
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-		<script>
-			new Vue({
-				el: '#app',
-				data: {
-					classText: 'blue',
-					inputTxt: '',
-					array: [],
+		<p :class="{blue: colors.azul, green: colors.verde, red: colors.vermelho, yellow: colors.amarelo}">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+			veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+			commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+			velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+			occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+			mollit anim id est laborum.
+		</p>
+	</div>
+
+	<style>
+		.blue {
+			background-color: blue;
+		}
+
+		.green {
+			background-color: green;
+		}
+
+		.red {
+			background-color: red;
+		}
+
+		.yellow {
+			background-color: yellow;
+		}
+	</style>
+
+	<!-- development version, includes helpful console warnings -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				colors: {
+					azul: true,
+					verde: false,
+					vermelho: false,
+					amarelo: false
 				},
-				methods: {
-					changeName(name, event) {
-						this.array.push(this.inputTxt)
-						this.inputTxt = ''
-					},
-					alert(event) {
-						var element = event.target
-						if (element.style.background == 'white')
-							event.target.style = 'background: yellow'
-						else event.target.style = 'background: white'
-					},
-					colorText(color) {
-						this.classText = color
-					},
+				classText: 'blue',
+				inputTxt: '',
+				array: [],
+			},
+			methods: {
+				changeName(name, event) {
+					this.array.push(this.inputTxt)
+					this.inputTxt = ''
 				},
-			})
-		</script>
-	</body>
+				alert(event) {
+					var element = event.target
+					if (element.style.background == 'white')
+						event.target.style = 'background: yellow'
+					else event.target.style = 'background: white'
+				},
+				colorText(color) {
+					this.classText = color
+				},
+				blue() {
+					this.colors.azul = true;
+					this.colors.verde = false;
+					this.colors.vermelho = false;
+					this.colors.amarelo = false;
+				},
+				green() {
+					this.colors.azul = false;
+					this.colors.verde = true;
+					this.colors.vermelho = false;
+					this.colors.amarelo = false;
+				},
+				red() {
+					this.colors.azul = false;
+					this.colors.verde = false;
+					this.colors.vermelho = true;
+					this.colors.amarelo = false;
+				},
+				yellow() {
+					this.colors.azul = false;
+					this.colors.verde = false;
+					this.colors.vermelho = false;
+					this.colors.amarelo = true;
+				}
+			},
+		})
+	</script>
+</body>
+
 </html>
