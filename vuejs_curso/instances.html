@@ -9,27 +9,44 @@
 </head>
 
 <body>
-    <div id="first">
-        {{name}}
-    </div>
+    <div>
+        <div id="first">
+            {{ name }}
+            <button @click="print()">Change 1</button>
+        </div>
 
-    <div id="second">
-        {{name}}
+        <div id="second">
+            {{ name }}
+            <button @click="print()">Change 2</button>
+        </div>
+
     </div>
 
     <script>
+        let msg = 'My Application'
+
         const first = new Vue({
             el: '#first',
             data: {
-                name: 'First Instance'
-            }
+                name: `${msg} 1`
+            },
+            methods: {
+                print() {
+                    first.name = 'Another Application 1'
+                }
+            },
         })
 
         const second = new Vue({
             el: '#second',
             data: {
-                name: 'Second Instance'
-            }
+                name: `${msg} 2`
+            },
+            methods: {
+                print() {
+                    second.name = 'Another Application 2'
+                }
+            },
         })
     </script>
 </body>
