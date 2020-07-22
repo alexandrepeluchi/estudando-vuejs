@@ -9,15 +9,26 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="first">
+        {{name}}
+    </div>
+
+    <div id="second">
         {{name}}
     </div>
 
     <script>
-        const app = new Vue({
-            el: '#app',
+        const first = new Vue({
+            el: '#first',
             data: {
-                name: 'My app'
+                name: 'First Instance'
+            }
+        })
+
+        const second = new Vue({
+            el: '#second',
+            data: {
+                name: 'Second Instance'
             }
         })
     </script>
