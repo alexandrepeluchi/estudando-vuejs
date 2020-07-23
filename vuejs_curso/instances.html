@@ -19,6 +19,12 @@
             {{ name }}
             <button @click="print()">Change 2</button>
         </div>
+        <hr>
+
+        <button onclick="load()">Change</button>
+        <div id="app">
+            {{ name }}
+        </div>
 
     </div>
 
@@ -47,6 +53,16 @@
                     second.name = 'Another Application 2'
                 }
             },
+        })
+        
+        function load() {
+            app.$mount('#app')
+        }
+
+        const app = new Vue({
+            data: {
+                name: 'Hello World!'
+            }
         })
     </script>
 </body>
