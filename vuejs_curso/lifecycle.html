@@ -9,10 +9,11 @@
 </head>
 
 <body>
+    <h1>Open console to see the Lifecycle</h1>
+    <hr>
     <div>
         <div id='app'>
         </div>
-
     </div>
 
     <script>
@@ -29,7 +30,7 @@
             },
             template: `
             <div>
-                <h1>{{title}}</h1>
+                <h2>{{title}}</h2>
                 <button @click="alertSomething()">Alert</button>
             </div>
             `
@@ -37,11 +38,53 @@
 
         const app = new Vue({
             el: '#app',
-            methods: {
-
+            data: {
+                numb: 1
             },
-            template: "<panel></panel>"
-        });
+            methods: {
+                updateEverything() {
+                    this.numb += 1
+                },
+                destroy() {
+                    this.$destroy()
+                }
+            },
+            template: `
+                <div>        
+                    <panel></panel>
+                    <br>
+                    Update counter: {{numb}}
+                    <button @click='updateEverything()'>Update</button>
+                    <hr>
+                    <h3>Destroy</h3>
+                    <button @click='destroy()'>Update</button>
+                </div>
+            `,
+            beforeCreate() {
+                console.log("Before create everything")
+            },
+            created() {
+                console.log("After everything is created")
+            },
+            beforeMount() {
+                console.log("Before mount anything")
+            },
+            mounted() {
+                console.log("Mounted")
+            },
+            beforeUpdate() {
+                console.log("Before update anything")
+            },
+            update() {
+                console.log("After update")
+            },
+            beforeDestroy() {
+                console.log("Before destroy")
+            },
+            destroyed() {
+                console.log("Destroyed")
+            }
+        })
     </script>
 </body>
 
