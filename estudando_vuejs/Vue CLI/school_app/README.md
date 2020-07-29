@@ -1,4 +1,4 @@
-# school_app
+# Vue School App
 
 ## Project setup
 ```
