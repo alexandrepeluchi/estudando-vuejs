@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{title}}</h1>
-    <input type="text" placeholder="Student name" v-model="name" />
+    <input type="text" placeholder="Student name" v-model="name" v-on:keyup.enter="addStudent()" />
 
     <table border="1px">
       <thead>
@@ -27,10 +27,19 @@ export default {
   data() {
     return {
       title: "Student",
-      name: "Students",
+      name: "tete",
+      students: [],
     };
   },
   props: {},
+  methods: {
+    addStudent() {
+      this.students.push(this.name);
+      this.students.forEach((element) => {
+        console.log(element);
+      });
+    },
+  },
 };
 </script>
 
